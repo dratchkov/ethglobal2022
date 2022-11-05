@@ -32,7 +32,7 @@ const useMinter = (CONTRACT_ADDRESS, ABI) => {
           existingTokens.push({
             ...lastTokenInfo,
             image: `https://gateway.pinata.cloud/ipfs/${lastTokenInfo.image}`,
-            url: `https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${tokenId}`,
+            url: `https://testnets.opensea.io/assets/mumbai/${CONTRACT_ADDRESS}/${tokenId}`,
           });
           setMintedTokens(existingTokens);
         });
@@ -55,7 +55,7 @@ const useMinter = (CONTRACT_ADDRESS, ABI) => {
     }
   }
 
-  const mintNewToken = async (name, desc, image) => {
+  const mintNewToken = async (name, desc, image, attribs) => {
     try {
       setMinting(true);
       lastTokenInfo = { name, desc, image };
@@ -64,7 +64,8 @@ const useMinter = (CONTRACT_ADDRESS, ABI) => {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
-        let nftTxn = await connectedContract.makeAnEpicNFT(name, desc, `ipfs://${image}`);
+        let nftTxn = await connectedContract.makeAnEpicNFT(name, desc, `ipfs://${image}`, attribs);
+        console.log(nftTxn);
         await nftTxn.wait();
       }
     } catch (error) {
