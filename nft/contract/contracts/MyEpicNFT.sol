@@ -21,7 +21,7 @@ contract MyEpicNFT is ERC721URIStorage {
     console.log("This is my NFT contract. Woah!");
   }
 
-  function makeAnEpicNFT(string memory name, string memory description, string memory imageUrl) public {
+  function makeAnEpicNFT(string memory name, string memory description, string memory imageUrl, string memory attribs) public {
     uint256 newItemId = _tokenIds.current();
 
 
@@ -30,7 +30,7 @@ contract MyEpicNFT is ERC721URIStorage {
         bytes(
             string(
                 abi.encodePacked(
-                    '{"name": "', name, '", "description": "', description ,'", "image": "', imageUrl ,'"}'
+                    '{"name": "', name, '", "description": "', description ,'", "image": "', imageUrl ,'", "attributes": ',attribs,'}'
                 )
             )
         )
@@ -55,3 +55,5 @@ contract MyEpicNFT is ERC721URIStorage {
     console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
   }
 }
+
+
