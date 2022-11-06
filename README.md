@@ -1,4 +1,4 @@
-# FairCraft NFT Marketplace
+# FairKrafts NFT Marketplace
 ## Dirctories Structure
 ###NFT
 NFT contract and create contract
