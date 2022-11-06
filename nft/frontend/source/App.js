@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Contact = {
-  address : '0x1323796eBF58E9D5D1C7665004aeE79210E76d43',
+  address : '0x1a8015F314Ab517a5D43aA429b8910D4EF3e2f00',
   abi: contractFile.abi,
 }
 
@@ -57,8 +57,7 @@ const App = () => {
   return (
     <div className={classes.mainGrid}>
       <div className={classes.header}>
-        <Image fontSize='large' color="primary" />
-        <Typography className={classes.heading} variant="h6">My NFT Gallery</Typography>
+        <img src="fairkraft.jpeg" alt="FairCraft" width="100"></img>
         <Button color="primary" variant="contained" size="large" onClick={() => setMintForm(true)} disabled={minting}>
           Mint NFT
         </Button>

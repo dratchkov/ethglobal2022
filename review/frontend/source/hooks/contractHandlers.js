@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 import { Actions } from "../redux-store";
 import contractJson from './compiled-contract.json'; 
 
-const CONTRACT_ADDRESS = '0x00ea3Fa050ba1a777Be487cdDDB53eeC97e91A8D';
+const CONTRACT_ADDRESS = '0x336b81B762D6A0D927489De7CD1e814E99001Ba5';
 const CONTRACT_ABI = contractJson.abi;
 
 let contractInstance = null;

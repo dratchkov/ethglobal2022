@@ -32,7 +32,7 @@ const CreateTopic = ({ open, onClose }) => {
 
   return (
     <Dialog maxWidth="sm" fullWidth open={open} onClose={onClose} PaperProps={{ className: classes.card }}>
-      <Typography variant="h6" gutterBottom >Create New Topic</Typography>
+      <Typography variant="h6" gutterBottom >Create New Review</Typography>
       <TextField
         variant="outlined"
         color="primary"
@@ -69,7 +69,7 @@ const CreateTopic = ({ open, onClose }) => {
         <InfoOutlined />
         <span>This operation is irreversible!</span>
         <Button color="primary" variant="contained" style={{ marginLeft: 'auto' }} onClick={handlePost}>
-          Post Topic
+          Post Review
         </Button>
       </div>
     </Dialog >

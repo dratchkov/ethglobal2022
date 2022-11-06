@@ -64,13 +64,9 @@ const ExploreThreads = ({ }) => {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <PersonOutline />
-        <Typography variant="subtitle1">{nick}</Typography>
-        <Button onClick={() => setNickDialog(true)} style={{ marginRight: 'auto' }} variant="outlined" color="primary" size="small">
-          Set Nickname
-        </Button>
+        <img src="fairkraft.jpeg" alt="FairCraft" width="100"></img>
         <Button disabled={busy} color="primary" variant="contained" onClick={() => setCreateDialog(true)}>
-          Create New Topic
+          Create New Review
         </Button>
       </div>
       <div className={classes.body}>
@@ -85,7 +81,7 @@ const ExploreThreads = ({ }) => {
               <AccessTimeOutlined />
               <span>{topicItem.createdAt}</span>
               <Button variant="outlined" color='primary' style={{ marginLeft: 'auto' }} onClick={() => handleViewDiscussion(index)}>
-                View Full Discussion
+                View Full Review
               </Button>
             </div>
           </Paper>
@@ -93,7 +89,7 @@ const ExploreThreads = ({ }) => {
         {busy ? (
           <CircularProgress color="primary" style={{ alignSelf: 'center' }} size={64} /> 
         ) : (
-          <Button style={{ alignSelf: 'center' }} variant="contained" onClick={handleMoreTopics} >Load More Topics</Button>
+          <Button style={{ alignSelf: 'center' }} variant="contained" onClick={handleMoreTopics} >Load More Reviews</Button>
         )}
         <CreateTopic open={createDialog} onClose={() => setCreateDialog(false)} />
         <UpdateNickname open={nickDialog} onClose={() => setNickDialog(false)} />
