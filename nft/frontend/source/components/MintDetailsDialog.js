@@ -42,14 +42,19 @@ const useStyles = makeStyles(theme => ({
 const MintDetailsDialog = ({ open, onMint, onClose }) => {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
+  const [nfcId, setNFCId] = useState('');
+  const [reviewURL, setReviewURL] = useState('');
   const [image, setImage] = useState('');
   const [key, setKey] = useState('');
   const [val, setVal] = useState('');
   const [attribs, setAttribs] = useState([]);
   const [show, setShow] = useState(false);
   const handleMint = () => {
-    if (name && desc && image) {
-      onMint(name, desc, image, JSON.stringify(attribs));
+    if (name && desc && image && nfcId && reviewURL) {
+      let newAttribs = attribs.slice();
+      newAttribs.push({ trait_type: 'nfc', value: nfcId });
+      newAttribs.push({ trait_type: 'review', value: reviewURL });
+      onMint(name, desc, image, JSON.stringify(newAttribs));
     }
   }
   const handleAdd = () => {
@@ -71,6 +76,8 @@ const MintDetailsDialog = ({ open, onMint, onClose }) => {
           <Typography variant="h6">Primary Attributes</Typography>
           <TextField size="small" variant="outlined" value={name} onChange={e => setName(e.target.value)} label="Name" fullWidth />
           <TextField size="small" variant="outlined" value={desc} onChange={e => setDesc(e.target.value)} label="Description" fullWidth />
+          <TextField size="small" variant="outlined" value={nfcId} onChange={e => setNFCId(e.target.value)} label="NFC Id" fullWidth />
+          <TextField size="small" variant="outlined" value={reviewURL} onChange={e => setReviewURL(e.target.value)} label="Review URL" fullWidth />
           <TextField
             size="small"
             variant="outlined"
